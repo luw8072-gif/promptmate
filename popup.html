@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#c9d1d9;--accent:#58a6ff;--gold:#d4a72c;--green:#2ea043}
+*{margin:0;padding:0;box-sizing:border-box}body{width:380px;min-height:400px;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+h1{font-size:1.1rem;background:linear-gradient(135deg,var(--accent),#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.badge{font-size:0.65rem;padding:2px 8px;border-radius:20px;font-weight:700}.badge-pro{background:var(--gold);color:#000}.badge-free{background:var(--border);color:var(--text)}
+#search{width:100%;padding:10px 16px;background:var(--card);border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:13px;outline:none}
+#search:focus{border-color:var(--accent)}
+#list{max-height:300px;overflow-y:auto}
+.item{padding:10px 16px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.item:hover{background:var(--card)}.item .title{font-size:13px;font-weight:600}.item .preview{font-size:11px;color:#8b949e;margin-top:2px}
+.item .tags{display:flex;gap:4px;margin-top:3px}.tag{font-size:0.6rem;padding:1px 6px;background:var(--border);border-radius:10px;color:var(--text)}
+.lock{color:var(--gold)}
+.actions{padding:12px 16px;display:flex;gap:8px;border-top:1px solid var(--border)}
+button{flex:1;padding:8px;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:12px}
+.btn-add{background:var(--border);color:var(--text)}.btn-pro{background:linear-gradient(135deg,var(--gold),#f0c040);color:#000}
+.empty{text-align:center;padding:40px 16px;color:#484f58}
+.toast{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;z-index:100;opacity:0;transition:opacity 0.3s}.toast.show{opacity:1}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:200;display:none;align-items:center;justify-content:center}
+.modal.show{display:flex}.modal-inner{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;width:340px;max-height:80vh;overflow-y:auto}
+.modal-inner input,.modal-inner textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:6px;margin:6px 0;font-size:12px;font-family:monospace}
+.modal-inner h3{color:var(--accent);margin-bottom:8px}.modal-inner textarea{min-height:80px;resize:vertical}
+.modal-actions{display:flex;gap:8px;margin-top:12px}
+</style></head><body>
+<header><h1>⚡ PromptMate</h1><span id="proBadge" class="badge badge-free">Free</span></header>
+<input type="text" id="search" placeholder="Search prompts...">
+<div id="list"><div class="empty">Loading prompts...</div></div>
+<div class="actions">
+<button class="btn-add" id="btnAdd">+ Add Prompt</button>
+<button class="btn-pro" id="btnPro">Upgrade Pro $3</button>
+</div>
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal"><div class="modal-inner" id="modalBody"></div></div>
+<script src="popup.js"></script></body></html>
